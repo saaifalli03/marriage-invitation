@@ -1,0 +1,247 @@
+:root {
+  --cream: #faf6f0;
+  --cream-deep: #f3ead9;
+  --ink: #3a332c;
+  --ink-soft: #6f645a;
+  --gold: #b8935f;
+  --gold-soft: #d9bd93;
+  --line: #e4d7c3;
+  --max-width: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--cream);
+  background-image:
+    radial-gradient(circle at 15% 10%, var(--cream-deep) 0%, transparent 45%),
+    radial-gradient(circle at 85% 90%, var(--cream-deep) 0%, transparent 45%);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+body[data-lang="ur"] {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 20px;
+  line-height: 2;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 90px 24px 60px;
+}
+
+/* Language switch */
+
+.lang-switch {
+  position: fixed;
+  top: 20px;
+  inset-inline-end: 20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.lang-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  padding: 4px 6px;
+  font-family: inherit;
+}
+
+.lang-btn.active {
+  color: var(--gold);
+}
+
+.lang-switch .divider {
+  color: var(--line);
+}
+
+/* Hero */
+
+.hero {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+
+body[data-lang="ur"] .eyebrow {
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 16px;
+}
+
+.couple-names {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 8vw, 58px);
+  font-weight: 600;
+  margin: 0;
+  color: var(--ink);
+}
+
+body[data-lang="ur"] .couple-names {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-weight: 700;
+}
+
+.couple-names .amp {
+  color: var(--gold);
+  font-style: italic;
+  margin: 0 14px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.ornament {
+  color: var(--gold-soft);
+  font-size: 20px;
+  margin: 22px 0;
+}
+
+.wedding-date {
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin: 0 0 6px;
+  font-weight: 500;
+}
+
+.tagline {
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0;
+}
+
+body[data-lang="ur"] .tagline {
+  font-style: normal;
+}
+
+/* Events */
+
+.events {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 70px;
+}
+
+@media (max-width: 640px) {
+  .events {
+    grid-template-columns: 1fr;
+  }
+}
+
+.event-card {
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 34px 20px;
+}
+
+.event-icon {
+  font-size: 26px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.event-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+
+body[data-lang="ur"] .event-card h2 {
+  font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+.event-detail {
+  margin: 0 0 6px;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.event-detail:last-child {
+  margin-bottom: 0;
+}
+
+/* RSVP */
+
+.rsvp {
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 60px;
+}
+
+.rsvp-text {
+  color: var(--ink-soft);
+  margin: 0 0 26px;
+  font-size: 20px;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+  background: #a17c4d;
+  transform: translateY(-1px);
+}
+
+/* Footer */
+
+.footer {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding-top: 26px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  font-style: italic;
+}
+
+body[data-lang="ur"] .footer {
+  font-style: normal;
+}

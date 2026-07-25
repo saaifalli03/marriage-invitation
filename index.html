@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="lang-switch">
+  <button id="btn-en" class="lang-btn active" data-lang="en">EN</button>
+  <span class="divider">/</span>
+  <button id="btn-ur" class="lang-btn" data-lang="ur">اردو</button>
+</div>
+
+<main>
+
+  <section class="hero">
+    <p class="eyebrow" data-i18n="hero.eyebrow">Together with their families</p>
+    <h1 class="couple-names">
+      <span data-i18n="hero.bride">Ayesha</span>
+      <span class="amp">&amp;</span>
+      <span data-i18n="hero.groom">Hamza</span>
+    </h1>
+    <div class="ornament">✦</div>
+    <p class="wedding-date" data-i18n="hero.date">12 — 14 December 2026</p>
+    <p class="tagline" data-i18n="hero.tagline">request the honour of your presence</p>
+  </section>
+
+  <section class="events">
+
+    <article class="event-card">
+      <span class="event-icon">🌿</span>
+      <h2 data-i18n="mehndi.title">Mehndi</h2>
+      <p class="event-detail" data-i18n="mehndi.date">Friday, 12 December 2026</p>
+      <p class="event-detail" data-i18n="mehndi.time">6:00 PM Onwards</p>
+      <p class="event-detail" data-i18n="mehndi.venue">Rose Garden Lawn, Lahore</p>
+    </article>
+
+    <article class="event-card">
+      <span class="event-icon">🕊️</span>
+      <h2 data-i18n="barat.title">Barat</h2>
+      <p class="event-detail" data-i18n="barat.date">Saturday, 13 December 2026</p>
+      <p class="event-detail" data-i18n="barat.time">7:00 PM Onwards</p>
+      <p class="event-detail" data-i18n="barat.venue">Grand Palace Banquet, Lahore</p>
+    </article>
+
+    <article class="event-card">
+      <span class="event-icon">💐</span>
+      <h2 data-i18n="walima.title">Walima</h2>
+      <p class="event-detail" data-i18n="walima.date">Sunday, 14 December 2026</p>
+      <p class="event-detail" data-i18n="walima.time">8:00 PM Onwards</p>
+      <p class="event-detail" data-i18n="walima.venue">Emerald Marquee, Lahore</p>
+    </article>
+
+  </section>
+
+  <section class="rsvp">
+    <div class="ornament">✦</div>
+    <p class="rsvp-text" data-i18n="rsvp.text">We would be honoured to celebrate with you</p>
+    <a id="whatsapp-btn" class="whatsapp-btn" target="_blank" rel="noopener">
+      <svg class="wa-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"></path><path d="M12.003 2.003c-5.523 0-10 4.477-10 10 0 1.766.462 3.478 1.34 4.984L2 22l5.157-1.313A9.953 9.953 0 0 0 12.003 22c5.522 0 10-4.477 10-10s-4.478-9.997-10-9.997zm5.893 15.893a8.264 8.264 0 0 1-5.893 2.44 8.29 8.29 0 0 1-4.222-1.155l-.303-.18-3.06.78.817-2.98-.197-.306a8.263 8.263 0 0 1-1.268-4.412c0-4.582 3.728-8.31 8.31-8.31 2.22 0 4.307.865 5.876 2.435a8.253 8.253 0 0 1 2.434 5.876c0 2.22-.865 4.308-2.494 5.812z"></path></svg>
+      <span data-i18n="rsvp.button">Send RSVP on WhatsApp</span>
+    </a>
+  </section>
+
+  <footer class="footer">
+    <p data-i18n="footer.text">With love, Ayesha &amp; Hamza</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
