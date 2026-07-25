@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // EDIT THESE — your WhatsApp number (with country code, no + or spaces) and message
 // ---------------------------------------------------------------------------
-const WHATSAPP_NUMBER = "923001234567"; // e.g. 92 for Pakistan + number, no leading 0
+const WHATSAPP_NUMBER = "923207539520"; // e.g. 92 for Pakistan + number, no leading 0
 const WHATSAPP_MESSAGE = {
   en: "Assalamualaikum! I'd love to confirm my attendance at your wedding. 🌸",
   ur: "السلام علیکم! میں آپ کی شادی میں شرکت کی تصدیق کرنا چاہتا/چاہتی ہوں۔ 🌸",
@@ -35,7 +35,7 @@ const translations = {
   },
   ur: {
     "hero.eyebrow": "دونوں خاندانوں کی طرف سے",
-    "hero.bride": "ثمہ رفاقت",
+    "hero.bride": "سما رفاقت",
     "hero.groom": "اسد علی",
     "hero.date": "30 اکتوبر — 1 نومبر 2026",
     "hero.tagline": "آپ کی تشریف آوری کی دعوت دیتے ہیں",
@@ -53,7 +53,7 @@ const translations = {
     "walima.venue": "نارووال",
     "rsvp.text": "آپ کی شرکت ہمارے لیے باعثِ اعزاز ہوگی",
     "rsvp.button": "واٹس ایپ پر آر ایس وی پی بھیجیں",
-    "footer.text": "محبت کے ساتھ، ثمہ اور اسد",
+    "footer.text": "محبت کے ساتھ، سما اور اسد",
   },
 };
 
@@ -79,12 +79,18 @@ function applyLanguage(lang) {
 
 function updateWhatsappLink(lang) {
   const link = document.getElementById("whatsapp-btn");
-  const message = encodeURIComponent(WHATSAPP_MESSAGE[lang] || WHATSAPP_MESSAGE.en);
+  const message = encodeURIComponent(
+    WHATSAPP_MESSAGE[lang] || WHATSAPP_MESSAGE.en,
+  );
   link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 }
 
-document.getElementById("btn-en").addEventListener("click", () => applyLanguage("en"));
-document.getElementById("btn-ur").addEventListener("click", () => applyLanguage("ur"));
+document
+  .getElementById("btn-en")
+  .addEventListener("click", () => applyLanguage("en"));
+document
+  .getElementById("btn-ur")
+  .addEventListener("click", () => applyLanguage("ur"));
 
 const savedLang = localStorage.getItem(STORAGE_KEY);
 applyLanguage(savedLang === "ur" ? "ur" : "en");
