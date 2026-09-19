@@ -3,13 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation</title>
+<title>Sama &amp; Asad — Wedding Invitation</title>
+<meta name="theme-color" content="#faf6f0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&family=Cormorant+Garamond:wght@400;500;600&family=Mrs+Saint+Delafield&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<noscript>
+  <style>.cover{ display:none !important; } html.locked{ overflow:auto !important; height:auto !important; } main, .reveal{ opacity:1 !important; transform:none !important; }</style>
+</noscript>
 
 <div class="lang-switch">
   <button id="btn-en" class="lang-btn active" data-lang="en">EN</button>
@@ -17,50 +22,114 @@
   <button id="btn-ur" class="lang-btn" data-lang="ur">اردو</button>
 </div>
 
-<main>
+<div class="cover" id="cover">
+  <div class="cover-label" data-i18n="cover.label">the wedding of</div>
+  <div class="envelope-stage">
+    <button class="envelope" id="envelope" aria-label="Open the invitation">
+      <div class="env-back"></div>
+      <div class="card" id="card">
+        <div class="card-inner">
+          <span class="card-eyebrow" data-i18n="cover.invited">You are invited</span>
+          <span class="card-names" data-i18n="card.names">Sama &amp; Asad</span>
+          <svg class="card-orn" viewBox="0 0 200 40" aria-hidden="true">
+            <path d="M5,20 C45,4 75,36 100,20 C125,4 155,36 195,20"/>
+            <circle cx="100" cy="20" r="3.5"/>
+          </svg>
+        </div>
+      </div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <div class="env-seal">S&amp;A</div>
+    </button>
+  </div>
+  <div class="cover-cue" id="coverCue" data-i18n="cover.cue">Tap the seal to open</div>
+</div>
+
+<main id="content">
 
   <section class="hero">
-    <p class="eyebrow" data-i18n="hero.eyebrow">Together with their families</p>
-    <h1 class="couple-names">
+    <p class="hero-eyebrow" data-i18n="hero.eyebrow">Together with their families</p>
+    <h1 class="hero-names">
       <span data-i18n="hero.bride">Sama Rafaqat</span>
-      <span class="amp">&amp;</span>
+      <span class="hero-amp">&amp;</span>
       <span data-i18n="hero.groom">Asad Ali</span>
     </h1>
-    <div class="ornament">✦</div>
-    <p class="wedding-date" data-i18n="hero.date">30 October — 1 November 2026</p>
-    <p class="tagline" data-i18n="hero.tagline">request the honour of your presence</p>
+    <p class="hero-date" id="hero-date" data-i18n="hero.date">30 October — 1 November 2026</p>
+    <p class="hero-place" data-i18n="hero.tagline">request the honour of your presence</p>
   </section>
 
-  <section class="events">
+  <div class="divider reveal">
+    <svg class="ornament" viewBox="0 0 200 40" aria-hidden="true">
+      <path d="M5,20 C45,4 75,36 100,20 C125,4 155,36 195,20"/>
+      <circle cx="55" cy="14" r="3"/>
+      <circle cx="145" cy="26" r="3"/>
+      <circle cx="100" cy="20" r="3.5"/>
+    </svg>
+  </div>
 
-    <article class="event-card">
-      <span class="event-icon">🌿</span>
-      <h2 data-i18n="mehndi.title">Mehndi</h2>
-      <p class="event-detail" data-i18n="mehndi.date">Friday, 30 October 2026</p>
-      <p class="event-detail" data-i18n="mehndi.time">6:00 PM Onwards</p>
-      <p class="event-detail" data-i18n="mehndi.venue">Narrowal</p>
-    </article>
-
-    <article class="event-card">
-      <span class="event-icon">🕊️</span>
-      <h2 data-i18n="barat.title">Barat</h2>
-      <p class="event-detail" data-i18n="barat.date">Saturday, 31 October 2026</p>
-      <p class="event-detail" data-i18n="barat.time">7:00 PM Onwards</p>
-      <p class="event-detail" data-i18n="barat.venue">Narrowal</p>
-    </article>
-
-    <article class="event-card">
-      <span class="event-icon">💐</span>
-      <h2 data-i18n="walima.title">Walima</h2>
-      <p class="event-detail" data-i18n="walima.date">Sunday, 1 November 2026</p>
-      <p class="event-detail" data-i18n="walima.time">8:00 PM Onwards</p>
-      <p class="event-detail" data-i18n="walima.venue">Narrowal</p>
-    </article>
-
+  <section class="countdown-section reveal">
+    <div class="section-title" data-i18n="countdown.title">Counting down</div>
+    <div class="section-lede" data-i18n="countdown.lede">until the celebrations begin</div>
+    <div class="countdown" id="countdown">
+      <div class="cd-box"><span class="cd-num" id="cdDays">00</span><span class="cd-label" data-i18n="countdown.days">days</span></div>
+      <div class="cd-box"><span class="cd-num" id="cdHours">00</span><span class="cd-label" data-i18n="countdown.hours">hours</span></div>
+      <div class="cd-box"><span class="cd-num" id="cdMins">00</span><span class="cd-label" data-i18n="countdown.mins">minutes</span></div>
+      <div class="cd-box"><span class="cd-num" id="cdSecs">00</span><span class="cd-label" data-i18n="countdown.secs">seconds</span></div>
+    </div>
   </section>
 
-  <section class="rsvp">
-    <div class="ornament">✦</div>
+  <div class="divider reveal">
+    <svg class="ornament" viewBox="0 0 200 40" aria-hidden="true">
+      <path d="M5,20 C45,4 75,36 100,20 C125,4 155,36 195,20"/>
+      <circle cx="55" cy="14" r="3"/>
+      <circle cx="145" cy="26" r="3"/>
+      <circle cx="100" cy="20" r="3.5"/>
+    </svg>
+  </div>
+
+  <section class="schedule reveal">
+    <div class="section-title" id="schedule-title" data-i18n="schedule.title">Three days of celebration</div>
+    <div class="section-lede" id="schedule-lede" data-i18n="schedule.lede">Everyone is welcome at every event</div>
+    <div class="timeline">
+
+      <div class="tl-item" data-event="mehndi" hidden>
+        <div class="tl-dot"></div>
+        <div class="tl-when" data-i18n="mehndi.date">Friday, 30 October 2026</div>
+        <div class="tl-title" data-i18n="mehndi.title">Mehndi</div>
+        <div class="tl-where" data-i18n="mehndi.venue">Narrowal</div>
+        <div class="tl-note" data-i18n="mehndi.time">7:00 PM – 10:00 PM</div>
+      </div>
+
+      <div class="tl-item" data-event="barat">
+        <div class="tl-dot"></div>
+        <div class="tl-when" data-i18n="barat.date">Saturday, 31 October 2026</div>
+        <div class="tl-title" data-i18n="barat.title">Barat</div>
+        <div class="tl-where" data-i18n="barat.venue">JMK Marquee, New Lahore Road, Narowal</div>
+        <div class="tl-note" data-i18n="barat.time">12:00 PM – 4:00 PM</div>
+      </div>
+
+      <div class="tl-item" data-event="walima" hidden>
+        <div class="tl-dot"></div>
+        <div class="tl-when" data-i18n="walima.date">Sunday, 1 November 2026</div>
+        <div class="tl-title" data-i18n="walima.title">Walima</div>
+        <div class="tl-where" data-i18n="walima.venue">Ghouri Marquee, Pasrur Road, Chawinda</div>
+        <div class="tl-note" data-i18n="walima.time">12:00 PM – 4:00 PM</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider reveal">
+    <svg class="ornament" viewBox="0 0 200 40" aria-hidden="true">
+      <path d="M5,20 C45,4 75,36 100,20 C125,4 155,36 195,20"/>
+      <circle cx="55" cy="14" r="3"/>
+      <circle cx="145" cy="26" r="3"/>
+      <circle cx="100" cy="20" r="3.5"/>
+    </svg>
+  </div>
+
+  <section class="rsvp reveal">
+    <div class="section-title" data-i18n="rsvp.title">Join the celebration</div>
     <p class="rsvp-text" data-i18n="rsvp.text">We would be honoured to celebrate with you</p>
     <a id="whatsapp-btn" class="whatsapp-btn" target="_blank" rel="noopener">
       <svg class="wa-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"></path><path d="M12.003 2.003c-5.523 0-10 4.477-10 10 0 1.766.462 3.478 1.34 4.984L2 22l5.157-1.313A9.953 9.953 0 0 0 12.003 22c5.522 0 10-4.477 10-10s-4.478-9.997-10-9.997zm5.893 15.893a8.264 8.264 0 0 1-5.893 2.44 8.29 8.29 0 0 1-4.222-1.155l-.303-.18-3.06.78.817-2.98-.197-.306a8.263 8.263 0 0 1-1.268-4.412c0-4.582 3.728-8.31 8.31-8.31 2.22 0 4.307.865 5.876 2.435a8.253 8.253 0 0 1 2.434 5.876c0 2.22-.865 4.308-2.494 5.812z"></path></svg>
@@ -68,8 +137,9 @@
     </a>
   </section>
 
-  <footer class="footer">
-    <p data-i18n="footer.text">With love, Sama &amp; Asad</p>
+  <footer class="footer reveal">
+    <div class="footer-mono">S &amp; A</div>
+    <div class="footer-tag" data-i18n="footer.text">With love, Sama &amp; Asad</div>
   </footer>
 
 </main>
