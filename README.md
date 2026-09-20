@@ -26,5 +26,7 @@ The invitation is one link; add a query string to control the events shown. Bara
 | `yoursite.vercel.app/?M` | Mehndi + Barat |
 | `yoursite.vercel.app/?W` | Barat + Walima |
 | `yoursite.vercel.app/?M&W` (or `?MW`) | Mehndi + Barat + Walima |
+| `yoursite.vercel.app/?A` | Mehndi (venue: Sarangpur) + Barat |
+| `yoursite.vercel.app/?A&W` | Mehndi (Sarangpur) + Barat + Walima |
 
-`?e=M`, `?e=W` and `?e=MW` work too. The date line, section title and countdown adjust automatically. Deploy as a static site on Vercel; no config needed.
+`M` and `A` can't be combined; if both are given, `M` wins. `?e=M`, `?e=W`, `?e=A` and `?e=MW` work too. The date line, section title and countdown adjust automatically. Deploy as a static site on Vercel; no config needed.

@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // EDIT THESE — your WhatsApp number (with country code, no + or spaces) and message
 // ---------------------------------------------------------------------------
-const WHATSAPP_NUMBER = "923207539520"; // e.g. 92 for Pakistan + number, no leading 0
+const WHATSAPP_NUMBER = "923016312462"; // e.g. 92 for Pakistan + number, no leading 0
 const WHATSAPP_MESSAGE = {
   en: "Assalamualaikum! I'd love to confirm my attendance at your wedding. 🌸",
   ur: "السلام علیکم! میں آپ کی شادی میں شرکت کی تصدیق کرنا چاہتا/چاہتی ہوں۔ 🌸",
@@ -41,6 +41,7 @@ const translations = {
     "mehndi.date": "Friday, 30 October 2026",
     "mehndi.time": "7:00 PM – 10:00 PM",
     "mehndi.venue": "Narrowal",
+    "mehndi.venue.a": "Sarangpur",
     "barat.title": "Barat",
     "barat.date": "Saturday, 31 October 2026",
     "barat.time": "12:00 PM – 4:00 PM",
@@ -83,6 +84,7 @@ const translations = {
     "mehndi.date": "جمعہ، 30 اکتوبر 2026",
     "mehndi.time": "شام 7 بجے سے رات 10 بجے تک",
     "mehndi.venue": "نارووال",
+    "mehndi.venue.a": "سارنگ پور",
     "barat.title": "بارات",
     "barat.date": "ہفتہ، 31 اکتوبر 2026",
     "barat.time": "دوپہر 12 بجے سے شام 4 بجے تک",
@@ -103,15 +105,19 @@ const translations = {
 //   ?M           -> Mehndi + Barat        (also ?e=M)
 //   ?W           -> Barat + Walima        (also ?e=W)
 //   ?M&W / ?MW   -> all three events      (also ?e=MW)
+//   ?A           -> Mehndi (venue: Sarangpur) + Barat; combine with W for all three
+//                   M and A are mutually exclusive: if both are given, M wins.
 // ---------------------------------------------------------------------------
 function readEventFlags() {
   const tokens = [];
   new URLSearchParams(window.location.search).forEach((value, key) => {
     if (["e", "events", "event"].includes(key.toLowerCase())) tokens.push(value);
-    else if (/^[mw]+$/i.test(key)) tokens.push(key);
+    else if (/^[mwa]+$/i.test(key)) tokens.push(key);
   });
   const letters = tokens.join("").toUpperCase();
-  return { mehndi: letters.includes("M"), walima: letters.includes("W") };
+  const m = letters.includes("M");
+  const a = letters.includes("A") && !m;
+  return { mehndi: m || a, mehndiSarangpur: a, walima: letters.includes("W") };
 }
 
 const SHOW = readEventFlags();
@@ -119,6 +125,12 @@ const SHOW = readEventFlags();
 (function applyEventVisibility() {
   document.querySelector('[data-event="mehndi"]').hidden = !SHOW.mehndi;
   document.querySelector('[data-event="walima"]').hidden = !SHOW.walima;
+
+  if (SHOW.mehndiSarangpur) {
+    document
+      .querySelector('[data-event="mehndi"] .tl-where')
+      .setAttribute("data-i18n", "mehndi.venue.a");
+  }
 
   const count = 1 + Number(SHOW.mehndi) + Number(SHOW.walima);
   const dateKey =
